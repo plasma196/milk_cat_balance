@@ -1,0 +1,11 @@
+mod = [
+	"milk_cat_balance"
+]
+
+package = [
+	"resource_packages/milk_cat_balance/milk_cat_balance"
+]
+
+lua = [
+	"scripts/mods/milk_cat_balance/*"
+]
