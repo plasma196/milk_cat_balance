@@ -205,14 +205,14 @@ local TALENT_OPTIONS = {
 }
 -- career_name, talent 3-1, talent 3-2, talent 3-3
 local talent_third_row = {
-	{ "es_mercenary", 		MAINSTAY, 	SMITER, 	ENHANCED_POWER },
+	{ "es_mercenary", 		FINESSE, 	SMITER, 	ENHANCED_POWER },
 	{ "es_huntsman", 		FINESSE, 	SMITER, 	ENHANCED_POWER }, -- Bulwark > Finesse
 	{ "es_knight", 			TANK, 		MAINSTAY, 	ENHANCED_POWER },
 	{ "es_questingknight", 	TANK, 		SMITER, 	ENHANCED_POWER },
 
 	{ "dr_ranger", 			TANK,		MAINSTAY, 	ENHANCED_POWER },
 	{ "dr_ironbreaker", 	TANK, 		SMITER, 	ENHANCED_POWER },
-	{ "dr_slayer", 			SMITER, 	MAINSTAY, 	ENHANCED_POWER },
+	{ "dr_slayer", 			SMITER, 	FINESSE, 	ENHANCED_POWER },
 	{ "dr_engineer", 		TANK, 		MAINSTAY, 	ENHANCED_POWER },
 
 	{ "we_waywatcher", 		MAINSTAY, 	FINESSE, 	ENHANCED_POWER },
@@ -222,11 +222,11 @@ local talent_third_row = {
 
 	{ "wh_captain", 		MAINSTAY, 	FINESSE, 	ENHANCED_POWER },
 	{ "wh_bountyhunter", 	SMITER, 	FINESSE, 	ENHANCED_POWER },
-	{ "wh_zealot", 			SMITER, 	MAINSTAY, 	ENHANCED_POWER },
+	{ "wh_zealot", 			SMITER, 	FINESSE, 	ENHANCED_POWER },
 	{ "wh_priest", 			SMITER, 	MAINSTAY, 	ENHANCED_POWER },
 
 	{ "bw_adept", 			TANK, 		SMITER, 	ENHANCED_POWER },
-	{ "bw_scholar", 		SMITER, 	MAINSTAY, 	ENHANCED_POWER },
+	{ "bw_scholar", 		SMITER, 	FINESSE, 	ENHANCED_POWER },
 	{ "bw_unchained", 		TANK, 		MAINSTAY, 	ENHANCED_POWER },
 	{ "bw_necromancer", 	MAINSTAY, 	SMITER, 	ENHANCED_POWER },
 }

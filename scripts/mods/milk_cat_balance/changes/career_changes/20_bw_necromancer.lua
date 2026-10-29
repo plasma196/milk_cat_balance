@@ -5,9 +5,6 @@ local mod_api = require("scripts/mods/milk_cat_balance/_api/_mod_api")
 	$BEGIN_TB
 		---
 		## Necromancer
-		### Career Ability
-		- Reduced stagger from regular ult to 0 (from 1). Excludes Barrow Blades ult, which has improved stagger.
-
 		### Talents
 		**Death Ascendant**
 		- Changed buff to ranged weapon damage (from ranged power).
@@ -25,10 +22,11 @@ local mod_api = require("scripts/mods/milk_cat_balance/_api/_mod_api")
 	$END_TB
 ]]
 --[[
-	Ultimate
+
+	Passives
+
 ]]
--- Remove stagger from ult
-DamageProfileTemplates.sienna_necromancer_ability_stagger.default_target.power_distribution.impact = 0 -- 1
+
 
 --[[
 
