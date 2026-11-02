@@ -74,7 +74,7 @@ if not rawget(_G, "WEAPON_EDITOR_STATE") and not rawget(_G, "WEAPON_EDITOR_VANIL
 	local seen = {}
 
 	rawset(_G, "WEAPON_EDITOR_VANILLA_SNAPSHOT", {
-		taken_by = "milk_cat_balance",
+		taken_by = "TourneyBalance",
 		tables = {
 			Weapons = deep_copy(Weapons, seen),
 			DamageProfileTemplates = deep_copy(DamageProfileTemplates, seen),
@@ -155,11 +155,12 @@ mod:add_all_mods_loaded_function(function ()
 	end
 
 	weapon_editor.register_balance_mod({
-		name = "milk_cat_balance",
+		name = "TourneyBalance",
 		label = "TB",
 		profile_prefix = "tb_",
 		authored_profiles_global = "NewDamageProfileTemplates",
 		export_key_order = EXPORT_KEY_ORDER,
+		patch_notes_markers = { "$BEGIN_TB", "$END_TB" },
 		damage_calculation = mod.tb_do_damage_calculation,
 		stagger_multiplier = stagger_multiplier,
 		add_calculate_damage_observer = function (observer)
@@ -168,7 +169,7 @@ mod:add_all_mods_loaded_function(function ()
 		add_apply_buffs_to_damage_wrapper = function (wrapper)
 			mod:add_apply_buffs_to_damage_wrapper(wrapper)
 		end,
-		legacy_settings_mod = "milk_cat_balance",
+		legacy_settings_mod = "TourneyBalance",
 		legacy_edits_setting = "tbwe_saved_edits",
 		legacy_forks_setting = "tbwe_saved_forks",
 	})
