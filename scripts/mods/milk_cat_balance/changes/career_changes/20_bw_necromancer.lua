@@ -34,16 +34,84 @@ local mod_api = require("scripts/mods/milk_cat_balance/_api/_mod_api")
 
 ]]
 --[[
+	Vanhel's Danse Macabre
+]]
+local DANSE_MACABRE_BUFF = "sienna_necromancer_2_1_attack_speed"
+local DANSE_MACABRE_MAX_STACKS = 3
+
+mod_api.update_talent_buff_template("bright_wizard", DANSE_MACABRE_BUFF, {
+	max_stacks = DANSE_MACABRE_MAX_STACKS, -- 1
+	multiplier = 0.05, -- 0.12
+})
+-- A stack for each raised skeleton, on the field or desummoned (both are in the controlled units count). Checked on
+-- a timer, since desummoning and resummoning change the count without the controlled unit events the talent used
+mod_api.insert_buff_function("tb_danse_macabre_update", function (unit, buff, params)
+	local commander_extension = ScriptUnit.has_extension(unit, "ai_commander_system")
+	local buff_extension = ScriptUnit.has_extension(unit, "buff_system")
+
+	if not commander_extension or not buff_extension then
+		return
+	end
+
+	local wanted_stacks = math.min(commander_extension:get_controlled_units_count(), DANSE_MACABRE_MAX_STACKS)
+	local stacks = buff_extension:get_stacking_buff(DANSE_MACABRE_BUFF)
+	local current_stacks = stacks and #stacks or 0
+
+	for _ = current_stacks + 1, wanted_stacks do
+		buff_extension:add_buff(DANSE_MACABRE_BUFF)
+	end
+
+	for i = current_stacks, wanted_stacks + 1, -1 do
+		buff_extension:remove_buff(stacks[i].id)
+	end
+end)
+mod_api.insert_talent_buff_template("bright_wizard", "sienna_necromancer_2_1", {
+	update_frequency = 0.25,
+	update_func = "tb_danse_macabre_update",
+})
+mod_api.update_talent("bw_necromancer", 2, 1, {
+	buffs = {
+		"sienna_necromancer_2_1",
+	},
+	description = "sienna_necromancer_2_1_desc",
+	description_values = {},
+})
+mod_api.insert_text("sienna_necromancer_2_1_desc", "For each raised skeleton increases attack speed by 5%. Max 3 stacks.")
+
+--[[
 	Death Ascendant
 ]]
 mod_api.update_talent_buff_template("bright_wizard", "sienna_necromancer_2_2_buff", {
     stat_buff = "increased_weapon_damage_ranged" -- "power_level_ranged"
 })
+mod_api.update_talent_buff_template("bright_wizard", "sienna_necromancer_2_2", {
+	event = "on_ranged_hit" -- "on_spell_used"
+})
 mod_api.update_talent("bw_necromancer", 2, 2, {
     description = "sienna_necromancer_2_2_desc",
     description_values = {},
 })
-mod_api.insert_text("sienna_necromancer_2_2_desc", "Casting spells grants 5% ranged damage for 6 seconds. Max stacks 5.")
+mod_api.insert_text("sienna_necromancer_2_2_desc", "Ranged hits grant 5% ranged damage for 6 seconds. Max stacks 5.")
+
+-- The soulstealer's soul rip (ActionDamageTarget) only runs the ranged hit procs on its final damage step, its other
+-- damage ticks never do. So each of those ticks grants a stack here, and the final step if the proc did not
+mod:hook(ActionDamageTarget, "_apply_damage_step", function (func, self, hit_unit, power_level, step_data, t)
+	local owner_unit = self.owner_unit
+	local talent_extension = ScriptUnit.has_extension(owner_unit, "talent_system")
+
+	if not talent_extension or not talent_extension:has_talent("sienna_necromancer_2_2") or not HEALTH_ALIVE[hit_unit] or not Managers.state.side:is_enemy(owner_unit, hit_unit) then
+		return func(self, hit_unit, power_level, step_data, t)
+	end
+
+	local buff_extension = self.owner_buff_extension
+	local stacks_before = buff_extension:num_buff_type("sienna_necromancer_2_2_buff")
+
+	func(self, hit_unit, power_level, step_data, t)
+
+	if not step_data.proc_buffs or buff_extension:num_buff_type("sienna_necromancer_2_2_buff") == stacks_before then
+		buff_extension:add_buff("sienna_necromancer_2_2_buff")
+	end
+end)
 
 --[[
 	Reaping
