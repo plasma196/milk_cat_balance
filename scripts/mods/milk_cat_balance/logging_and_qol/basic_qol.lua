@@ -57,6 +57,7 @@ function(func, self, ...)
 
 	script_data.cap_num_bots = original_cap_num_bots
 end)
+
 -- Prevent a crash with disabled bots.
 mod:hook(AdventureSpawning, "force_update_spawn_positions", function(func, ...)
 	if not mod:get("disable_bots") then
