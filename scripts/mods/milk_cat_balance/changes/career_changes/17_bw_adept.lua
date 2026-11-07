@@ -67,7 +67,7 @@ mod_api.insert_buff_template("sienna_adept_ability_trail", {
 ]]
 mod_api.insert_talent_buff_template("bright_wizard", "battle_wizard_lingering_reduced_dot_damage", {
     stat_buff = "increased_burn_dot_damage",
-    multiplier = -0.67,
+    multiplier = -0.80,
 })
 mod_api.update_talent("bw_adept", 2, 3, {
     buffs = {
