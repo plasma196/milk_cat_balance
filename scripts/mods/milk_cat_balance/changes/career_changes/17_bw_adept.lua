@@ -32,14 +32,7 @@ local mod_api = require("scripts/mods/milk_cat_balance/_api/_mod_api")
 		- Added 20% cooldown reduction.
 	$END_TB
 ]]
---[[
 
-Base
-
-]]
-mod_api.update_talent_buff_template("bright_wizard", "sienna_adept_ability_cooldown_on_damage_taken ", {
-    bonus = 0.3 --0.5
-})
 
 --[[
 
@@ -68,17 +61,6 @@ mod_api.insert_buff_template("sienna_adept_ability_trail", {
 	Talents
 
 ]]
---[[
-    Famished Flames
-]]
-mod_api.update_talent_buff_template("bright_wizard", "sienna_adept_increased_burn_damage", {
-    multiplier = 1.5, -- 1,
-})
-mod_api.update_talent_buff_template("bright_wizard", "sienna_adept_reduced_non_burn_damage", {
-    multiplier = -0.3, -- -0.15,
-})
-mod_api.insert_text("sienna_adept_increased_burn_damage_reduced_non_burn_damage_desc", "Burning damage over time is increased by 150.0%%. All non-burn damage is reduced by 30.0%%.")
-
 
 --[[
     Lingering Flames
@@ -99,7 +81,7 @@ mod_api.insert_text("sienna_adept_infinite_burn_desc", "Sienna's burning effects
 ]]
 mod_api.update_talent_buff_template("bright_wizard", "sienna_adept_damage_reduction_on_ignited_enemy_buff", {
     multiplier = -0.05, -- -0.08,
-	max_stacks = 4 -- 8
+	max_stacks = 4 -- 3
 })
 mod_api.update_talent("bw_adept", 5, 1, {
     description_values = {

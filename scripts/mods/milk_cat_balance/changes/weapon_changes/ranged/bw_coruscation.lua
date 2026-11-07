@@ -9,31 +9,10 @@ Weapons.bw_deus_01_template_1.actions.action_one.default.allowed_chain_actions[1
 Weapons.bw_deus_01_template_1.actions.action_one.default.total_time = 0.65
 Weapons.bw_deus_01_template_1.actions.action_one.default.shot_count = 15
 
+-- Weapon editor export (TourneyBalance)
 
---[[ --Pool Nerf
-DamageProfileTemplates.staff_magma.default_target.power_distribution_near.attack = 0.12
-DamageProfileTemplates.staff_magma.default_target.power_distribution_far.attack = 0.06
-PlayerUnitStatusSettings.overcharge_values.magma_basic = 4
-ExplosionTemplates.magma.aoe.duration = 3
-ExplosionTemplates.magma.aoe.damage_interval = 1
-PlayerUnitStatusSettings.overcharge_values.magma_charged_2 = 10
-PlayerUnitStatusSettings.overcharge_values.magma_charged = 14
-mod_api.insert_buff_template("burning_magma_dot", {
-	duration = 3,
-	name = "burning_magma_dot",
-	end_flow_event = "smoke",
-	start_flow_event = "burn",
-	update_start_delay = 0.75,
-	reapply_start_flow_event = true,
-	apply_buff_func = "start_dot_damage",
-	death_flow_event = "burn_death",
-	time_between_dot_damages = 1.5,
-	refresh_durations = true,
-	damage_type = "burninating",
-	damage_profile = "burning_dot",
-	update_func = "apply_dot_damage",
-	reapply_buff_func = "reapply_dot_damage",
-	max_stacks = 15,
-	perks = { buff_perks.burning }
-})
- ]]
+-- burning_dot
+DamageProfileTemplates.burning_dot.default_target.armor_modifier.attack[1] = 0.6 -- official: 1
+DamageProfileTemplates.burning_dot.default_target.armor_modifier.attack[2] = 0.25 -- official: 0.75
+DamageProfileTemplates.burning_dot.default_target.armor_modifier.attack[3] = 3.5 -- official: 3
+DamageProfileTemplates.burning_dot.default_target.armor_modifier.attack[6] = 0.25 -- official: 0.5
