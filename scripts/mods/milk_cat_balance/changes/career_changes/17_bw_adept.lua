@@ -74,7 +74,7 @@ mod_api.update_talent("bw_adept", 2, 3, {
         "battle_wizard_lingering_reduced_dot_damage"
     },
 })
-mod_api.insert_text("sienna_adept_infinite_burn_desc", "Sienna's burning effects now last until the affected enemy dies. Burning effects do not stack and deal 67% reduced damage.")
+mod_api.insert_text("sienna_adept_infinite_burn_desc", "Sienna's burning effects now last until the affected enemy dies. Burning effects do not stack and deal 80% reduced damage.")
 
 --[[
     Soot Shield

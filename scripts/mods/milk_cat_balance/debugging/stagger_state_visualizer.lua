@@ -1,5 +1,5 @@
 local mod = get_mod("milk_cat_balance")
-local color_presets = require("scripts/mods/TourneyBalance/debugging/_color_presets")
+local color_presets = require("scripts/mods/milk_cat_balance/debugging/_color_presets")
 
 --[[
 

@@ -31,6 +31,12 @@ Weapons.staff_death.actions.action_one.default_02.impact_data.damage_profile = "
 Weapons.staff_death.actions.action_one.default_02.chain_hit_settings.damage_profile = "soulstealer_left_click"
 Weapons.staff_death.actions.action_one.soul_rip.damage_steps[2].damage_profile = "soulstealer_soul_rip_aka_da_suck"
 
+-- left click chain actions buff
+Weapons.staff_death.actions.action_one.default.allowed_chain_actions[1].start_time = 0.6 -- official: 0.7
+Weapons.staff_death.actions.action_one.default.allowed_chain_actions[3].start_time = 0.42 -- official: 0.5
+Weapons.staff_death.actions.action_one.default_02.allowed_chain_actions[1].start_time = 0.6 -- official: 0.7
+Weapons.staff_death.actions.action_one.default_02.allowed_chain_actions[3].start_time = 0.42 -- official: 0.5
+
 NewDamageProfileTemplates.soulstealer_left_click = {
 	charge_value = "projectile",
 	no_friendly_fire = true,
@@ -153,7 +159,7 @@ NewDamageProfileTemplates.soulstealer_soul_rip_aka_da_suck = {
 		attack_armor_power_modifer = {
 			0.95, -- 1
 			0.637, -- 1.4
-			1.6, -- 3
+			2.7, -- 3
 			1,
 			0.23, -- 1
 			0.54, -- 1
@@ -171,7 +177,7 @@ NewDamageProfileTemplates.soulstealer_soul_rip_aka_da_suck = {
 		attack = {
 			1.295, -- 1
 			0.806, -- 1.2
-			2.1, -- 2.5
+			2.85,  -- 2.5
 			1,
 			0.4, -- 0.75
 			0.7,
