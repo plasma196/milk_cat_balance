@@ -10,7 +10,7 @@ Weapons.staff_blast_beam_template_1.actions.action_one.default.zoom_thresholds =
 Weapons.staff_blast_beam_template_1.actions.action_one.default.zoom_condition_function = function ()
 	return true
 end
-PlayerUnitStatusSettings.overcharge_values.beam_staff_shotgun = 5
+PlayerUnitStatusSettings.overcharge_values.beam_staff_shotgun = 7
 Weapons.staff_blast_beam_template_1.actions.action_two.charged_beam.spread_template_override = "spear"
 Weapons.staff_blast_beam_template_1.actions.action_two.charged_beam.damage_window_start = 0.01
 Weapons.staff_blast_beam_template_1.actions.action_one.shoot_charged.damage_profile = "beam_blast"
@@ -25,11 +25,11 @@ NewDamageProfileTemplates.beam_blast = {
 	dot_template_name = "burning_dot_1tick",
 	critical_strike = {
 		attack_armor_power_modifer = {
-			1,
+			.8, --1
 			0.2,
 			1,
 			1,
-			0.7,
+			0.63, --1
 			0.15
 		},
 		impact_armor_power_modifer = {
@@ -43,11 +43,11 @@ NewDamageProfileTemplates.beam_blast = {
 	},
 	armor_modifier = {
 		attack = {
-			1,
+			.8, --1
 			0,
 			1,
 			1,
-			0.6,
+			0.54, --1
 			0
 		},
 		impact = {
@@ -70,7 +70,7 @@ NewDamageProfileTemplates.beam_blast = {
 		attack_template = "flame_blast",
 		power_distribution_near = {
 			attack = 0.1,
-			impact = 0.275
+			impact = 0.18 --.275
 		},
 		power_distribution_far = {
 			attack = 0.05,

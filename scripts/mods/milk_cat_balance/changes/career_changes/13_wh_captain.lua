@@ -394,7 +394,7 @@ mod_api.insert_text("victor_witchhunter_activated_ability_guaranteed_crit_self_b
 
 --[[
 	Unending Hunt
-]]
+
 -- Teammates' crit chance reduced to 25% only when the caster has Unending Hunt (6-3); the caster keeps 25%
 local function is_unending_hunt_ally(unit, params)
 	local caster_unit = params and params.attacker_unit
@@ -433,4 +433,4 @@ mod_api.update_talent("wh_captain", 6, 3, {
 	description_values = {},
 })
 mod_api.insert_text("victor_witchhunter_activated_ability_refund_cooldown_on_enemies_hit_desc", "Hitting at least 10 enemies with Animosity refunds 40.0% of its cooldown. Critical strike chance bonus for allies is reduced to 15.0%.")
-
+]]

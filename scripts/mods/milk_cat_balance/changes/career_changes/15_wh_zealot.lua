@@ -174,6 +174,7 @@ mod_api.insert_text("zealot_unbending_purpose_desc", "Increases power by 10.0% a
 --[[
     Crusade
 ]]
+--[[ 
 -- Chance to avoid an enemy hit equal to the movement speed bonus from Crusade (5% per stack), Devotion (30%), movement speed trinket (5%), speed potion (50%), so 100% is reachable when stacked.
 local CRUSADE_TALENT = "victor_zealot_passive_move_speed"
 local CRUSADE_MOVE_SPEED_BUFF = "victor_zealot_passive_move_speed_buff"
@@ -292,7 +293,7 @@ mod_api.update_talent("wh_zealot", 4, 1, {
     description_values = {},
 })
 mod_api.insert_text("tb_victor_zealot_passive_move_speed_desc", "Each stack of Fiery Faith also increases movement speed by 5.0%. Chance to avoid damage based on movement speed bonus.")
-
+ ]]
 --[[
     Holy Fortitude
 ]]

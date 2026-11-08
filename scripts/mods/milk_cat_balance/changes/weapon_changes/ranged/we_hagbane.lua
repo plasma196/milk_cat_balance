@@ -3,6 +3,9 @@ local mod = get_mod("milk_cat_balance")
 --[[
     Hagbane
 ]]
+
+Weapons.shortbow_hagbane_template_1.ammo_data.max_ammo = 17
+
 DamageProfileTemplates.poison = {
 	charge_value = "n/a",
 	is_dot = true,

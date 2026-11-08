@@ -3,8 +3,8 @@ local mod = get_mod("milk_cat_balance")
 --[[
     Scythe
 ]]
-Weapons.staff_scythe.actions.action_one.heavy_attack_01.hit_mass_count = HEAVY_LINESMAN_HIT_MASS_COUNT
-Weapons.staff_scythe.actions.action_one.heavy_attack_02.hit_mass_count = HEAVY_LINESMAN_HIT_MASS_COUNT
+Weapons.staff_scythe.actions.action_one.heavy_attack_01.hit_mass_count = LINESMAN_HIT_MASS_COUNT
+Weapons.staff_scythe.actions.action_one.heavy_attack_02.hit_mass_count = LINESMAN_HIT_MASS_COUNT
 
 Weapons.staff_scythe.actions.action_one.light_attack_03.hit_mass_count = LINESMAN_HIT_MASS_COUNT
 Weapons.staff_scythe.actions.action_one.light_attack_04.hit_mass_count = LINESMAN_HIT_MASS_COUNT
