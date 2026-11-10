@@ -587,3 +587,5 @@ for key, _ in pairs(NewExplosionTemplates) do
 end
 --Merge the tables together
 table.merge_recursive(ExplosionTemplates, NewExplosionTemplates)
+
+mod:dofile("scripts/mods/milk_cat_balance/changes/05_dutch_aura_overide")
